@@ -18,9 +18,33 @@
 <script>
 import jsonData from '@/assets/data/list.json'
 export default {
+  metaInfo () {
+    return {
+      title: this.pageName,
+      meta: [
+        { name: 'description', content: this.pageDesc },
+        { property: 'og:title', content: this.pageName + ' - VUE PORTFOLIO TEMPLETE' },
+        { property: 'og:description', content: this.pageDesc },
+        { property: 'og:image', content: this.pageImg }
+      ]
+    }
+  },
   data () {
     return {
-      lists: jsonData
+      lists: jsonData,
+      pageName: '',
+      pageDesc: '',
+      pageImg: ''
+    }
+  },
+  created () {
+    const num = this.$route.path.split('/')[2]
+    for (const list of this.lists) {
+      if (list.id === num) {
+        this.pageName = list.title
+        this.pageDesc = list.desc
+        this.pageImg = list.image
+      }
     }
   }
 }

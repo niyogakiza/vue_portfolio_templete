@@ -6,7 +6,35 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  metaInfo () {
+    return {
+      title: 'VUE PORTFOLIO TEMPLETE',
+      titleTemplate: '%s - VUE PORTFOLIO TEMPLETE',
+      htmlAttrs: {
+        lang: 'ja'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'format-detection', content: 'telephone=no' },
+        { property: 'og:url', content: this.pageUrl }
+      ],
+      link: [
+        { rel: 'stylesheets', href: 'https://fonts.googleapis.com/css?family=Noto+Sans' }
+      ]
+    }
+  },
+  data () {
+    return {
+      pageUrl: ''
+    }
+  },
+  updated () {
+    this.pageUrl = window.location.href
+    console.log(this.pageUrl)
+  }
 }
 </script>
 

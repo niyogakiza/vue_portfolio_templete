@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Meta from 'vue-meta'
 import Main from '@/components/Main'
 import Detail from '@/components/Detail'
 import Profile from '@/components/Profile'
 import NotFound from '@/components/404'
 
 Vue.use(Router)
+Vue.use(Meta)
 
 export default new Router({
   routes: [
